@@ -32,22 +32,15 @@ from google.colab import drive
 drive.mount('/content/drive')
 
 ## Mark train
-with ZipFile('/content/drive/MyDrive/small_folder.zip') as zipObj:
-  zipObj.extractall('/sample/small_folder/')
-
-with ZipFile('/content/drive/MyDrive/test.zip') as zipObj1:
-  zipObj1.extractall('/test')
-
-## Mark train
-training_dataset_path = "/sample/small_folder/small_folder"
-test_dataset_path = "/test/test"
+with ZipFile('/content/drive/MyDrive/pizza_classified_test_train.zip') as zipObj:
+  zipObj.extractall('/sample/pizza_classified_test_train/')
 
 EPOCHS = 30
 BATCH_SIZE = 32
-image_height = 227
-image_width = 227
-train_dir = "/sample/small_folder/small_folder"
-valid_dir = "/test/test"
+image_height = 224
+image_width = 224
+train_dir = "/sample/pizza_classified_test_train/final folder/train"
+valid_dir = "/sample/pizza_classified_test_train/final folder/test"
 
 train_datagen = ImageDataGenerator(
                   rescale=1./255,
@@ -77,48 +70,67 @@ valid_generator = valid_datagen.flow_from_directory(valid_dir,
 train_num = train_generator.samples
 valid_num = valid_generator.samples
 
+def plot_accuracy(hist):
+  plt.plot(hist.history["accuracy"])
+  plt.plot(hist.history["val_accuracy"])
+  plt.title("Model accuracy")
+  plt.ylabel("accuracy")
+  plt.xlabel("epoch")
+  plt.legend(["train", "validation"], loc="upper left")
+  plt.show()
+ 
+def plot_loss(hist):
+  plt.plot(hist.history["loss"])
+  plt.plot(hist.history["val_loss"])
+  plt.title("Model loss")
+  plt.ylabel("loss")
+  plt.xlabel("epoch")
+  plt.legend(["train", "validation"], loc="upper left")
+  plt.show()
+
 """#ResNet50"""
 
 feature_extractor_model = "https://tfhub.dev/google/imagenet/resnet_v2_50/classification/5"
-pre_trained_model = hub.KerasLayer(feature_extractor_model, input_shape=(224,224,3),trainable=False)
+pre_trained_resnet_model = hub.KerasLayer(feature_extractor_model, input_shape=(224,224,3),trainable=False)
 
-num_of_classes = 5
-model = tf.keras.Sequential([pre_trained_model,tf.keras.layers.Dense(num_of_classes)])
-model.summary()
+num_of_classes = 2
+resNet = tf.keras.Sequential([pre_trained_resnet_model,
+                             tf.keras.layers.Dense(1001),
+                             tf.keras.layers.Dropout(0.1),
+                             tf.keras.layers.Dense(16),
+                             tf.keras.layers.Dense(num_of_classes)])
+resNet.summary()
 
-model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=["accuracy"])
+resNet.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.0001), loss="categorical_crossentropy", metrics=["accuracy"])
 
-model.fit(train_generator, epochs=5)
+resNet.optimizer.learning_rate
 
-model.evaluate(valid_generator)
+resnet = resNet.fit(train_generator, validation_data  = valid_generator, epochs=10, verbose=2)
+
+plot_accuracy(resnet)
+
+plot_loss(resnet)
+
+resNet.evaluate(valid_generator)
 
 """#InceptionV3"""
 
 feature_extractor_model = "https://tfhub.dev/google/imagenet/inception_v3/classification/5"
-pre_trained_model = hub.KerasLayer(feature_extractor_model, input_shape=(224,224,3),trainable=False)
-num_of_classes = 5
-model1 = tf.keras.Sequential([pre_trained_model,tf.keras.layers.Dense(num_of_classes)])
-print(model1.summary())
-model1.compile(optimizer="adam", loss='categorical_crossentropy', metrics=["accuracy"])
-model1.fit(train_generator, epochs=5)
+pre_trained_inception_model = hub.KerasLayer(feature_extractor_model, input_shape=(224,224,3),trainable=False)
+num_of_classes = 2
+inception_v3 = tf.keras.Sequential([pre_trained_inception_model,      
+                              tf.keras.layers.Dense(64),
+                              tf.keras.layers.Dropout(0.1),
+                              tf.keras.layers.Dense(16),
+                              tf.keras.layers.Dense(num_of_classes)])
+inception_v3.summary()
 
-model1.evaluate(valid_generator)
+inception_v3.compile(optimizer="adam", loss='categorical_crossentropy', metrics=["accuracy"])
 
-from tensorflow.keras.applications.resnet50 import ResNet50
-from tensorflow.keras.preprocessing import image
-from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
-import numpy as np
+inception = inception_v3.fit(train_generator,  validation_data  = valid_generator, epochs=5, verbose=2)
 
-model_res = ResNet50(input_shape= [224,224,3],weights='imagenet', include_top=False)
+plot_accuracy(inception)
 
-for layer in model_res.layers:
-  layer.trainable=False
+plot_loss(inception)
 
-x = Flatten()(model_res.output)
-prediction = Dense(5, activation='softmax')(x)
-model2 = Model(inputs=model_res.input, outputs=prediction)
-model2.summary()
-
-model2.compile(optimizer="adam", loss='categorical_crossentropy', metrics=["accuracy"])
-model2.fit(train_generator,epochs=5)
-
+inception_v3.evaluate(valid_generator)
