@@ -23,7 +23,7 @@ If utilzing this commented out line, the line below must instead be commented ou
 what is used for testing in this case in terms of the variable name in use to allow for uniform behavior regardless of the subset in use.
 
 
-### Interprettng Output
+### Understanding the Output
 For each model, the accuracy will be displayed, and for models that were pretrained through Keras, a top 5 accuracy will also be 
 displayed. There will be no progress markers in order to prevent flooding the output cells. The final code cell can be ran to 
 produce a bar chart displaying the relative accuracies of the tested models. 
