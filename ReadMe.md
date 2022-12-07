@@ -7,7 +7,11 @@ must be adjusted to suit your specific environment. By default, the application 
 in the local directory. The dataset can be downloaded from https://drive.google.com/file/d/1fnbYf9cHIiCUBNzAVFAVTIuTaTjxX7pi/view?usp=sharing
 
 The dataset must be extracted prior to use. Similarly, the application will search for the saved h5 version of the AlexNet
-model in the local directory. If properly extracted, class detection and file loading should be automated. 
+model in the local directory. If properly extracted, class detection and file loading should be automated.
+
+The AlexNet model must also be downloaded (If not being created manually first) 
+from https://drive.google.com/file/d/1fZpCxQXom_mlQgzHs67EYUF8n_1Ggzl7/view?usp=sharing Like in the case of the 
+dataset, the application will expect this file to be in the same directory as the notebook file by default.
 
 ### Running the File
 With constants properly configured, the application should be able to run without any further interaction other than beginning execution. 
