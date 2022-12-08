@@ -32,3 +32,11 @@ what is used for testing in this case in terms of the variable name in use to al
 For each model, the accuracy will be displayed, and for models that were pretrained through Keras, a top 5 accuracy will also be 
 displayed. There will be no progress markers in order to prevent flooding the output cells. The final code cell can be ran to 
 produce a bar chart displaying the relative accuracies of the tested models. 
+
+## Transfer_Learning.ipynb
+### Configuring the File
+This notebook is used to test feasibility of transfer learning of ResNet50 and InceptionV3 models against each other. To get started with this file, the constants 
+must be adjusted to suit your specific environment. By default, the application will search for the dataset 
+in the local directory. The dataset can be downloaded from https://drive.google.com/file/d/1NJP2e9HpdlPSPwN8NAM5swCeBYlQZyS2/view?usp=share_link
+
+You will be needed to download the data from the above no need to extract the data from the zip folder, you will be needed to copy the path of the zip folder and update it in the
