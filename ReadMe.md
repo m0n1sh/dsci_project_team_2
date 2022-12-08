@@ -5,6 +5,23 @@ The logical workflow of running the full project begins with final_submission_ba
 
 The sections that follow describe the specific operation guidance for these notebooks. 
 
+##Base_model.ipynb
+### Configuring the File
+This notebook is used to build the base AlexNet model and observe the performace of it.
+Basic variable are editable as per our need and the class will reflect on initilization.
+Dataset is available in this Link, it has to be extracted and the training/validation path variable need to be updated to run the model.
+
+### Running the File
+It's a simple single cell run, as the code the modularised in that way.  Each function is clearly explained and in the main class.
+
+### Understanding the Output
+* No of Images in Test and Validation dataset.
+* Outputs from this file in the order on appreance. Model sumary which explaing the different layers of the models, kernals, and paramaters used.
+* Metrics of Each epoch.
+* Graph of the accuracy and loss performance of the model vs epoch.
+* Random set of images and their predicteion embedded in the image.
+
+
 ## testbed.ipynb
 ### Configuring the File
 This notebook is used to test various models against each other. To get started with this file, the constants 
