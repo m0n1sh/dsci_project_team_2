@@ -66,7 +66,7 @@ In local testing, this took roughly 1 hours to fully evaluate the ResNet50 and I
 ### Understanding the Output
 For each model, the accuracy will be displayed and a accuracy and loss plot will be plotted.
 
-##Transfer_learning_VGG16.ipynb
+## Transfer_learning_VGG16.ipynb
 ### Configuring the File
 This notebook is used to test feasibility of transfer learning for VGG16 and VGG19 models against each other. To get started with this file, the constants 
 must be adjusted to suit your specific environment. By default, the application will search for the dataset in the local directory, you will be needed to mount your drive. The dataset can be downloaded from https://drive.google.com/file/d/1NJP2e9HpdlPSPwN8NAM5swCeBYlQZyS2/view?usp=share_link
