@@ -10,7 +10,8 @@ The sections that follow describe the specific operation guidance for these note
 ### Configuring the File
 This notebook is used to build the base AlexNet model and observe the performace of it.
 Basic variable are editable as per our need and the class will reflect on initilization.
-Dataset is available in this Link( https://drive.google.com/file/d/1ArknCm4w1dpf7-G1_5TEPiPcb44AIxcJ/view?usp=sharing ), it has to be extracted and the training/validation path variable need to be updated to run the model.
+Dataset is available in this link below, it has to be extracted and the training/validation path variable need to be updated to run the model.
+https://drive.google.com/file/d/1ArknCm4w1dpf7-G1_5TEPiPcb44AIxcJ/view?usp=sharing
 
 ### Running the File
 It's a simple single cell run, as the code the modularised in that way.  Each function is clearly explained and in the main class.
