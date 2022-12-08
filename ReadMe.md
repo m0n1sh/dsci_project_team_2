@@ -75,11 +75,11 @@ You will have to use the ZipFile function to extraxt the contents of the folder.
 the contents of test folder in a certain path and later on set the variables for training path with the path to train folder and variable for 
 testing path with the path to test folder.
 
-###Running the File
+### Running the File
 With all the parameters properly set, the application should be run without any problems.
 In the local setup, it took nearly a little more than 1 and half hours to fully evaluate the VGG16 and VGg19 models, VGG19 model took large amount of time.
 
-###Understanding the Output
+### Understanding the Output
 For each model, the accuracies for each epoch will be displayed and an accuracy and a loss plot is shown.
 
 
