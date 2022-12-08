@@ -5,7 +5,7 @@ The logical workflow of running the full project begins with final_submission_ba
 
 The sections that follow describe the specific operation guidance for these notebooks. 
 
-## testbed.ipynb
+## final_submission_base_model.ipynb
 ### Configuring the File
 This notebook is used to test various models against each other. To get started with this file, the constants 
 must be adjusted to suit your specific environment. By default, the application will search for the dataset 
