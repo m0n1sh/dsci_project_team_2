@@ -5,7 +5,7 @@ The logical workflow of running the full project begins with final_submission_ba
 
 The sections that follow describe the specific operation guidance for these notebooks. 
 
-##Base_model.ipynb
+## Base_model.ipynb
 
 ### Configuring the File
 This notebook is used to build the base AlexNet model and observe the performace of it.
