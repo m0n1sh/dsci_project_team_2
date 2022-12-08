@@ -75,9 +75,13 @@ You will have to use the ZipFile function to extraxt the contents of the folder.
 the contents of test folder in a certain path and later on set the variables for training path with the path to train folder and variable for 
 testing path with the path to test folder.
 
+For the alexnet model, the AlexNet model must also be downloaded (If not being created manually first) from https://drive.google.com/file/d/1fZpCxQXom_mlQgzHs67EYUF8n_1Ggzl7/view?usp=sharing Like in the case of the dataset, the application will expect this file to be in the same directory as the notebook file by default.
+
 ### Running the File
 With all the parameters properly set, the application should be run without any problems.
-In the local setup, it took nearly a little more than 1 and half hours to fully evaluate the VGG16 and VGg19 models, VGG19 model took large amount of time.
+In the local setup, it took nearly 2 hours to fully evaluate the VGG16 and VGg19 models, VGG19 model took large amount of time.
+
+The alexnet model took much lesser time to evaluate. 
 
 ### Understanding the Output
 For each model, the accuracies for each epoch will be displayed and an accuracy and a loss plot is shown.
