@@ -1,7 +1,9 @@
 # ReadMe - Team 2 DSCI 633
 
 ## General Workflow 
-The logical workflow of running the full project begins with final_submission_base_model.ipynb as this notebook is used to create and train our implementation of AlexNet. Next in the logical flow is testbed.ipynb, this notebook orchestrates the testing of our AlexNet implemeentation in comparison to 5 pre-trained models. After this transfer_learning.ipynb, Transfer_learning_VGG16.ipynb, and Alexnet_Model.ipynb can be ran in any order as these notebooks work to perform transfer learning on the selected pre-trained models and our AlexNet implementation.
+The logical workflow of running the full project begins with final_submission_base_model.ipynb as this notebook is used to create and train our implementation of AlexNet. Next in the logical flow is testbed.ipynb, this notebook orchestrates the testing of our AlexNet implemeentation in comparison to 5 pre-trained models. After this, transfer_learning.ipynb, Transfer_learning_VGG16.ipynb, and Alexnet_Model.ipynb can be ran in any order as these notebooks work to perform transfer learning on the selected pre-trained models and our AlexNet implementation.
+
+The sections that follow describe the specific operation guidance for these notebooks. 
 
 ## testbed.ipynb
 ### Configuring the File
