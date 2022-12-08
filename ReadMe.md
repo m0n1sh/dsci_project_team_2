@@ -5,25 +5,6 @@ The logical workflow of running the full project begins with final_submission_ba
 
 The sections that follow describe the specific operation guidance for these notebooks. 
 
-## Base_model.ipynb
-
-### Configuring the File
-This notebook is used to build the base AlexNet model and observe the performace of it.
-Basic variable are editable as per our need and the class will reflect on initilization.
-Dataset is available in this link below, it has to be extracted and the training/validation path variable need to be updated to run the model.
-https://drive.google.com/file/d/1ArknCm4w1dpf7-G1_5TEPiPcb44AIxcJ/view?usp=sharing
-
-### Running the File
-It's a simple single cell run, as the code the modularised in that way.  Each function is clearly explained and in the main class.
-
-### Understanding the Output
-* No of Images in Test and Validation dataset.
-* Outputs from this file in the order on appreance. Model sumary which explaing the different layers of the models, kernals, and paramaters used.
-* Metrics of Each epoch.
-* Graph of the accuracy and loss performance of the model vs epoch.
-* Random set of images and their predicteion embedded in the image.
-
-
 ## testbed.ipynb
 ### Configuring the File
 This notebook is used to test various models against each other. To get started with this file, the constants 
@@ -46,7 +27,6 @@ For more rapid testing, there is a commented out line in the third from last cel
 If utilzing this commented out line, the line below must instead be commented out. This utilizes training/testing split, "training" data is
 what is used for testing in this case in terms of the variable name in use to allow for uniform behavior regardless of the subset in use.
 
-
 ### Understanding the Output
 For each model, the accuracy will be displayed, and for models that were pretrained through Keras, a top 5 accuracy will also be 
 displayed. There will be no progress markers in order to prevent flooding the output cells. The final code cell can be ran to 
@@ -55,7 +35,16 @@ produce a bar chart displaying the relative accuracies of the tested models.
 ## Transfer_Learning.ipynb
 ### Configuring the File
 This notebook is used to test feasibility of transfer learning of ResNet50 and InceptionV3 models against each other. To get started with this file, the constants 
-must be adjusted to suit your specific environment. By default, the application will search for the dataset 
-in the local directory. The dataset can be downloaded from https://drive.google.com/file/d/1NJP2e9HpdlPSPwN8NAM5swCeBYlQZyS2/view?usp=share_link
+must be adjusted to suit your specific environment. By default, the application will search for the dataset in the local directory, you will not be needed to mount your drive. The dataset can be downloaded from https://drive.google.com/file/d/1NJP2e9HpdlPSPwN8NAM5swCeBYlQZyS2/view?usp=share_link
 
-You will be needed to download the data from the above no need to extract the data from the zip folder, you will be needed to copy the path of the zip folder and update it in the
+You will be needed to download the data from the above link no need to extract the data from the zip folder, you will be needed to copy the path of the zip folder and update it in the ZipFilePath variable and update the DownloadedPath variable with the path of where you would like to download your extracted zip folder for example:
+ZipFilePath = "path to the zip folder", DownloadedPath = "path to where you like to extract the zip folder".
+
+Additionally, update the train_dir and valid_dir variable to the path of the train folder  and test folder in the extracted zip folder respectively.
+
+### Running the File
+With constants properly configured, the application should be able to run without any further interaction other than beginning execution. 
+In local testing, this took roughly 1 hours to fully evaluate the ResNet50 and InceptionV3 model.
+
+### Understanding the Output
+For each model, the accuracy will be displayed and a accuracy and loss plot will be plotted.
